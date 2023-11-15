@@ -4,5 +4,7 @@ matplotlib
 scikit-learn
 catboost
 xgboost
-flask
+uvicorn
+pydantic
+fastapi
 -e .

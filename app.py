@@ -1,23 +1,29 @@
-import pickle 
-from flask import Flask, request, jsonify, render_template
 import os
 import pandas as pd
 os.chdir('C:\\Aparna\\mlops')
+import uvicorn
+from fastapi import FastAPI
 
 from src.pipeline.inference import inference
+from post_data_validation import DataValidation
+app = FastAPI()
 
-app = Flask(__name__)
+@app.get('/')
+def index():
+    return {'message': 'Let''s predict the score'}
 
-@app.route('/')
-def render():
-    return render_template('index.html')
+@app.post('/predict')
+def predict(data:DataValidation):
+    print(data)
+    data=data.dict()
+    for key,value in data.items():
+        data[key]=[value]
+    inf = inference()
+    result = inf.predict(data)
+    return {'score is':result[0]}
 
-@app.route('/predict',methods=['GET','POST'])
-def predict():
-    if request.method=="GET":
-        return render_template('home.html')
     
-if __name__=="__main__":
+def predict_cli():
     data={}
     data['gender']=[input("what is the gender-male/female?")]
     data['race_ethnicity']=[input("what is the race- group A,B,C,D,E?")]
@@ -28,4 +34,8 @@ if __name__=="__main__":
     data['writing_score']=[input("what is the writing score out of 100?")]
     inf = inference()
     result = inf.predict(data)
-    print(result)
+    return result
+    
+if __name__=="__main__":
+    #result = predict_cli()
+    uvicorn.run(app,host='127.0.0.1',port=8000)

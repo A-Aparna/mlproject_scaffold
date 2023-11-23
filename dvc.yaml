@@ -16,4 +16,11 @@ stages:
     outs:
       - data_artifacts/test_transformed_data.csv
       - data_artifacts/train_transformed_data.csv
+      - model_artifacts/transformation.pkl
 
+  model_training:
+    cmd: python -m src.modules.model_training_reg
+    deps:
+      - src/modules/model_training_reg.py
+    outs:
+      - model_artifacts/model.pkl

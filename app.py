@@ -12,6 +12,11 @@ app = FastAPI()
 def index():
     return {'message': 'Let''s predict the score'}
 
+@app.get('/train')
+def train():
+    os.system('dvc repro')
+    return {'message': 'Training completed'}
+
 @app.post('/predict')
 def predict(data:DataValidation):
     print(data)
@@ -38,4 +43,4 @@ def predict_cli():
     
 if __name__=="__main__":
     #result = predict_cli()
-    uvicorn.run(app,host='127.0.0.1',port=8000)
+    uvicorn.run(app,host='0.0.0.0',port=8000)

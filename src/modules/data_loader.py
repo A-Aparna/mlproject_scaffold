@@ -1,10 +1,13 @@
 import os
-os.chdir('C:\\Aparna\\mlops')
+##os.chdir('C:\\Aparna\\mlops')
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+print(os.listdir())
+print(os.getcwd())
 from src.logger import logging
 
+STAGE_NAME="data_loader"
 @dataclass
 class data_loader_config:
     def __init__(self,data_type='csv'):
@@ -38,5 +41,7 @@ class data_loader:
 
 
 if __name__=='__main__':
+    logging.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
     data_loader_obj = data_loader('data/stud.csv')
     data_loader_obj.load()
+    logging.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<")

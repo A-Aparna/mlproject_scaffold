@@ -36,3 +36,19 @@ stages:
       hash: md5
       md5: d010a9140997d9173c2cf6a3f14fc3d6
       size: 128162
+    - path: model_artifacts/transformation.pkl
+      hash: md5
+      md5: b9ef1991965e0aa05b49c0ab959e0ea8
+      size: 3366
+  model_training:
+    cmd: python -m src.modules.model_training_reg
+    deps:
+    - path: src/modules/model_training_reg.py
+      hash: md5
+      md5: d267f4853c0ba7690771aad04110e026
+      size: 3112
+    outs:
+    - path: model_artifacts/model.pkl
+      hash: md5
+      md5: ad297affd6e9cb779c7e253c379b4b81
+      size: 707

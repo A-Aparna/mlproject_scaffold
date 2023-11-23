@@ -6,6 +6,6 @@ from src.logger import logging
 from inference import inference
 
 print(os.listdir())
-from src.modules.data_tranformation import load
+from src.modules.data_transformation import load
 
 logging.info("testing")

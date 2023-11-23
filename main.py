@@ -2,6 +2,16 @@ from src.logger import logging
 from src.modules.data_loader import data_loader
 from src.modules.data_transformation import data_transformation
 from src.modules.model_training_reg import model_training
+from config import *
+import mlflow
+from urllib.parse import urlparse
+from mlflow.models import infer_signature
+import mlflow.sklearn
+
+remote_server_uri=MLFLOW_TRACKING_URI
+mlflow.set_tracking_uri(remote_server_uri)
+
+tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
 STAGE_NAME="data_loader"
 

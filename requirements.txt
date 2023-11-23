@@ -7,4 +7,6 @@ xgboost
 uvicorn
 pydantic
 fastapi
+dvc
+mlflow
 -e .

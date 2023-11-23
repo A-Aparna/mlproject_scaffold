@@ -1,0 +1,19 @@
+stages:
+  data_loader:
+    cmd: python -m src.modules.data_loader
+    deps:
+      - src/modules/data_loader.py
+    outs:
+      - data_artifacts/raw_data.csv
+      - data_artifacts/train_data.csv
+      - data_artifacts/test_data.csv
+
+
+  data_transformation:
+    cmd: python -m src.modules.data_transformation
+    deps:
+      - src/modules/data_transformation.py
+    outs:
+      - data_artifacts/test_transformed_data.csv
+      - data_artifacts/train_transformed_data.csv
+

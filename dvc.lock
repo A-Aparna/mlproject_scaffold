@@ -45,8 +45,8 @@ stages:
     deps:
     - path: src/modules/model_training_reg.py
       hash: md5
-      md5: d267f4853c0ba7690771aad04110e026
-      size: 3112
+      md5: 35890ea098a46762c371b738835ad186
+      size: 3003
     outs:
     - path: model_artifacts/model.pkl
       hash: md5

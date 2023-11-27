@@ -1,5 +1,5 @@
 import os
-os.chdir('C:\\Aparna\\mlops')
+#os.chdir('C:\\Aparna\\mlops')
 
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
@@ -46,8 +46,8 @@ class model_training:
         
         for model_name,model in models.items():
             logging.info(f"training {model_name} model")
-            mse,train_r2,test_r2 = tracking_model_results(model,model_name,X_train,y_train,X_test,y_test)
-            #mse,train_r2,test_r2 = evaluate(model,X_train,y_train,X_test,y_test)
+            #mse,train_r2,test_r2 = tracking_model_results(model,model_name,X_train,y_train,X_test,y_test)
+            mse,train_r2,test_r2 = evaluate(model,X_train,y_train,X_test,y_test)
             training_score[model_name] = train_r2
             testing_score[model_name] = test_r2
 
@@ -64,7 +64,7 @@ class model_training:
 
 
         save_object(self.model_training_config.model_filepath,best_model)
-        tracking_model_results(best_model,best_model_name,X_train,y_train,X_test,y_test)
+        #tracking_model_results(best_model,best_model_name,X_train,y_train,X_test,y_test)
         predictions = best_model.predict(X_test)
         return training_score, testing_score
 

@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-os.chdir('C:\\Aparna\\mlops')
+#os.chdir('C:\\Aparna\\mlops')
 import uvicorn
 from fastapi import FastAPI
 

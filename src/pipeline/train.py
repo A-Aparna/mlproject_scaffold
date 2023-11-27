@@ -1,5 +1,5 @@
 import os
-os.chdir('C:\\Aparna\\mlops')
+#os.chdir('C:\\Aparna\\mlops')
 from src.logger import logging
 
 #from helper import hello

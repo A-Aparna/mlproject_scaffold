@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 import os
-os.chdir('C:\\Aparna\\mlops')
+#os.chdir('C:\\Aparna\\mlops')
 from src.helper import load_obj, save_object
 
 

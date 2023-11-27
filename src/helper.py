@@ -1,5 +1,5 @@
 import os
-os.chdir('C:\\Aparna\\mlops')
+#os.chdir('C:\\Aparna\\mlops')
 import pandas as pd
 import pickle
 

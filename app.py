@@ -10,10 +10,12 @@ app = FastAPI()
 
 @app.get('/')
 def index():
+    print('index page')
     return {'message': 'Let''s predict the score'}
 
 @app.get('/train')
 def train():
+    print('training started')
     os.system('dvc repro')
     return {'message': 'Training completed'}
 

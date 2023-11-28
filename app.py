@@ -41,6 +41,6 @@ def predict_cli():
     result = inf.predict(data)
     return result
     
-if __name__=="__main__":
+'''if __name__=="__main__":
     #result = predict_cli()
-    uvicorn.run(app,host='0.0.0.0',port=8080)
+    uvicorn.run(app,host='0.0.0.0',port=8080)'''

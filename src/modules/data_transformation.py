@@ -103,6 +103,7 @@ class data_transformation:
 
 
         logging.info(f"saving transformation at {self.data_transformation_config.transformation_filepath}")
+        print(f"saving transformation at {self.data_transformation_config.transformation_filepath}")
         save_object(self.data_transformation_config.transformation_filepath,self.preprocessor)
         save_object(self.data_transformation_config.train_transformed_data_path,self.train_df)
         save_object(self.data_transformation_config.test_transformed_data_path,self.test_df)

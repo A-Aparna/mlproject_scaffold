@@ -9,8 +9,10 @@ from src.helper import load_obj, save_object
 
 class inference:
     def __init__(self):
-        self.transform_path=os.path.join(os.getcwd(),'model_artifacts\\transformation.pkl')
-        self.model_path = os.path.join(os.getcwd(),'model_artifacts\\model.pkl')
+        print('os.getcwd()',os.getcwd())
+        print('inside model_artificats',os.listdir(f'{os.getcwd()}\model_artifacts'))
+        self.transform_path=os.path.join(os.getcwd(),'model_artifacts/transformation.pkl')
+        self.model_path = os.path.join(os.getcwd(),'model_artifacts/model.pkl')
         self.transform = load_obj(self.transform_path)
         self.model = load_obj(self.model_path)
 

@@ -5,6 +5,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from src.pipeline.inference import inference
+from src.helper import load_training_data
 from post_data_validation import DataValidation
 app = FastAPI()
 
@@ -15,6 +16,8 @@ def index():
 
 @app.get('/train')
 def train():
+    print("loading training data from drive")
+    load_training_data()
     print('training started')
     os.system('dvc repro')
     return {'message': 'Training completed'}
@@ -43,6 +46,6 @@ def predict_cli():
     result = inf.predict(data)
     return result
     
-'''if __name__=="__main__":
+if __name__=="__main__":
     #result = predict_cli()
-    uvicorn.run(app,host='0.0.0.0',port=8080)'''
+    uvicorn.run(app,host='127.0.0.1',port=8080)

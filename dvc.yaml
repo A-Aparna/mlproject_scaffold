@@ -2,6 +2,7 @@ stages:
   data_loader:
     cmd: python -m src.modules.data_loader
     deps:
+      - data/stud.csv
       - src/modules/data_loader.py
     outs:
       - data_artifacts/raw_data.csv
@@ -13,6 +14,8 @@ stages:
     cmd: python -m src.modules.data_transformation
     deps:
       - src/modules/data_transformation.py
+      - data_artifacts/train_data.csv
+      - data_artifacts/test_data.csv
     outs:
       - data_artifacts/test_transformed_data.csv
       - data_artifacts/train_transformed_data.csv
@@ -22,5 +25,6 @@ stages:
     cmd: python -m src.modules.model_training_reg
     deps:
       - src/modules/model_training_reg.py
+      - model_artifacts/transformation.pkl
     outs:
       - model_artifacts/model.pkl

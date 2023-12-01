@@ -1,11 +1,13 @@
 import os
 ##os.chdir('C:\\Aparna\\mlops')
 import pandas as pd
+import gdown
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 print(os.listdir())
 print(os.getcwd())
 from src.logger import logging
+from src.helper import load_training_data
 
 STAGE_NAME="data_loader"
 @dataclass
@@ -42,6 +44,8 @@ class data_loader:
 
 if __name__=='__main__':
     logging.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-    data_loader_obj = data_loader('data/stud.csv')
+    download_dir='./data/stud.csv'
+    data_loader_obj = data_loader(download_dir)
+    
     data_loader_obj.load()
     logging.info(f">>>>>> stage {STAGE_NAME} ended <<<<<<")

@@ -9,4 +9,7 @@ pydantic
 fastapi
 dvc
 mlflow
+dvc-s3
+gdown
+openpyxl
 -e .
